@@ -36,6 +36,13 @@ fi
 python3 -m venv --version ||  sudo apt-get install -y python3-venv
 
 
+# Install neuron index for Inf/Trn instances
+# See more at https://awsdocs-neuron.readthedocs-hosted.com/en/latest/frameworks/torch/index.html
+if [ ! -x "$(command -v neuron-top)" ]; then    
+    python -m pip config set global.extra-index-url https://pip.repos.neuron.amazonaws.com
+fi
+
+
 # Install AWS CLI V2
 if [ ! -d "/usr/local/aws-cli/v2/" ]; then
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
