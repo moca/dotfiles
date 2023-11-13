@@ -2,9 +2,9 @@
 
 sudo apt-get update
 
-# Install Zsh if not already installed
+# Install core tooling if not already installed
 if [ ! -x "$(command -v zsh)" ]; then    
-    sudo apt-get install -y zsh
+    sudo apt-get install -y zsh tree htop 
 fi
 
 # Install Oh My Zsh if not already installed
@@ -32,9 +32,21 @@ if [ ! -x "$(command -v starship)" ]; then
 fi
 
 
+# Get virtualenv readiness
 python3 -m venv --version ||  sudo apt-get install -y python3-venv
 
 
+# Install AWS CLI V2
+if [ ! -d "/usr/local/aws-cli/v2/" ]; then
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
+    rm -rf aws awscliv2.zip
+else 
+    echo "AWS CLI already updated to V2"
+fi
+
+# Install NVtop for GPU monitoring
 if [ -x "$(command -v nvidia-smi)" ] && [ ! -x "$(command -v nvtop)" ] ; then
     sudo add-apt-repository ppa:flexiondotorg/nvtop
     sudo apt update
