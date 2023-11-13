@@ -5,6 +5,7 @@ My dotfiles !
 
 ```bash
 git clone https://github.com/moca/dotfiles
+./dotfiles start.sh
 ```
 
 ## TODO 
