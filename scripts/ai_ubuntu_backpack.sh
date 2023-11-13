@@ -51,9 +51,7 @@ fi
 if [ ! -d "$HOME/aws_aiml_examples" ]; then
     git config --global user.name "Moca Guero"
     git config --global user.email "411543+moca@users.noreply.github.com"
-    git clone https://github.com/moca/aws_aiml_examples
+    git clone https://github.com/moca/aws_aiml_examples ~/aws_aiml_examples
 fi
 
-
-# Restart the machine
-# sudo reboot now
+echo '[ -x "$(command -v zsh)" ] && exec zsh || echo "zsh not found, continuing with bash"' >> ~/.bashrc
