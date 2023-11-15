@@ -4,14 +4,10 @@ My dotfiles !
 ## TL;DR
 
 ```bash
-git clone https://github.com/moca/dotfiles
-./dotfiles start.sh
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca
 ```
 
-## TODO 
-
-Use something fancy to install everything such as:
-
+## For fresh AWS instances on Ubuntu 
 ```bash
-bash <(curl -s http://mywebsite.example/myscript.txt)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/moca/dotfiles/main/scripts/ubuntu_backpack.sh)"
 ```

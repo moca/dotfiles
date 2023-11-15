@@ -17,16 +17,16 @@ if [ "$SHELL" != "$(which zsh)" ]; then
     sudo chsh -s "$(which zsh)"
 fi
 
-# Copy the default Oh My Zsh configuration file
-# if [ ! -f "$HOME/.zshrc" ]; then
-#     cp "$HOME/.oh-my-zsh/templates/zshrc.zsh-template" "$HOME/.zshrc"
-# fi
+# Make sure zsh is executed when opening a new terminal session with bash
+EXEC_ZSH='[ -x "$(command -v zsh)" ] && exec zsh || echo "zsh not found, continuing with bash"'
+if ! grep -Fxq "$EXEC_ZSH" ~/.bashrc; then
+    echo "$EXEC_ZSH" >> ~/.bashrc
+fi
 
-# Check if Starship is not installed
+
+# Install starship prompt if not already done
 if [ ! -x "$(command -v starship)" ]; then
-    # Install Starship
     sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
-
     # Add the following line to your shell profile file (e.g., .bashrc, .zshrc)
     echo 'eval "$(starship init zsh)"' >> "$HOME/.zshrc"    # For Zsh
 fi
@@ -34,13 +34,6 @@ fi
 
 # Get virtualenv readiness
 python3 -m venv --version ||  sudo apt-get install -y python3-venv
-
-
-# Install neuron index for Inf/Trn instances
-# See more at https://awsdocs-neuron.readthedocs-hosted.com/en/latest/frameworks/torch/index.html
-if [ ! -x "$(command -v neuron-top)" ]; then    
-    python -m pip config set global.extra-index-url https://pip.repos.neuron.amazonaws.com
-fi
 
 
 # Install AWS CLI V2
@@ -52,6 +45,15 @@ if [ ! -d "/usr/local/aws-cli/v2/" ]; then
 else 
     echo "AWS CLI already updated to V2"
 fi
+
+
+# Install neuron index for Inf/Trn instances
+# See more at https://awsdocs-neuron.readthedocs-hosted.com/en/latest/frameworks/torch/index.html
+if [ ! -x "$(command -v neuron-top)" ]; then    
+    # This index will also work on virtual environments
+    python -m pip config set global.extra-index-url https://pip.repos.neuron.amazonaws.com
+fi
+
 
 # Install NVtop for GPU monitoring
 if [ -x "$(command -v nvidia-smi)" ] && [ ! -x "$(command -v nvtop)" ] ; then
@@ -66,11 +68,14 @@ else
     echo "Nvidia drivers not found. Skipping nvtop installation."
 fi
 
-# Install AIML working directory
+# Install Chezmoi
+if [ ! -x "$(command -v chezmoi)" ]; then
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca
+fi
+
+
+# Install AWS AIML repo in the home
 if [ ! -d "$HOME/aws_aiml_examples" ]; then
-    git config --global user.name "Moca Guero"
-    git config --global user.email "411543+moca@users.noreply.github.com"
     git clone https://github.com/moca/aws_aiml_examples ~/aws_aiml_examples
 fi
 
-echo '[ -x "$(command -v zsh)" ] && exec zsh || echo "zsh not found, continuing with bash"' >> ~/.bashrc
