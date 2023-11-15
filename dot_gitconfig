@@ -1,0 +1,5 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = Moca Guero
+email = 411543+moca@users.noreply.github.com
