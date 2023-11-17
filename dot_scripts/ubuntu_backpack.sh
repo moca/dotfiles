@@ -72,7 +72,7 @@ fi
 
 # Install Chezmoi
 if [ ! -x "$(command -v chezmoi)" ]; then
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca -b $HOME/.local/bin
 fi
 
 echo "\n\n############################"

@@ -5,7 +5,7 @@ My dotfiles !
 
 For **existing hosts**
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init  moca
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init moca
 ```
 
 For fresh ec2 instances on **ubuntu**
