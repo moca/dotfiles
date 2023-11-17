@@ -10,4 +10,4 @@ fi
 region="$1"
 
 # Use the AWS CLI to list EC2 instances in the specified region
-aws ec2 describe-instances --region "$region" --query "Reservations[].Instances[] | [].[InstanceType, Tags[?Key=='Name'].Value | [0], InstanceId]" --output table
+aws ec2 describe-instances --region "$region" --query "Reservations[].Instances[] | [].[InstanceType, Tags[?Key=='Name'].Value | [0], InstanceId]" --output json
