@@ -4,5 +4,6 @@
 Host INSTANCE_NAME
     User ubuntu
     IdentityFile ~/.ssh/KEY-PAIR.pem
-    HostName i-XXXXXXXXXXXXXXXXX
+    HostName XXXXXXXXXXXXXXXXX
     ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --profile is-ai --region REGION --parameters portNumber=%p
+
