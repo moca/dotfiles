@@ -1,0 +1,8 @@
+# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+
+# Example config file for connecting to an EC2 instance via SSM
+Host INSTANCE_NAME
+    User ubuntu
+    IdentityFile ~/.ssh/KEY-PAIR.pem
+    HostName i-XXXXXXXXXXXXXXXXX
+    ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --profile is-ai --region REGION --parameters portNumber=%p
