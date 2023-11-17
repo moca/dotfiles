@@ -75,7 +75,7 @@ if [ ! -x "$(command -v chezmoi)" ]; then
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca -b $HOME/.local/bin
 fi
 
-echo "\n\n############################"
+echo "\n\n ############################"
 echo "nOMG! You're ready to go!"
 echo "Cloning time at https://github.com/moca/"
 

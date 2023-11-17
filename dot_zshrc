@@ -104,10 +104,10 @@ alias cm="chezmoi"
 os_name=$(uname)
 # For Ubuntu
 if grep -q "Ubuntu" /etc/os-release; then
-    alias cat="bat"
+    alias cat="batcat"
 # For macOS
 elif [[ "$os_name" == "Darwin" ]]; then
-    alias cat="batcat"
+    alias cat="bat"
 fi
 
 
