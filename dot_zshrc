@@ -99,7 +99,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cat="bat"
 alias cm="chezmoi"
+
+os_name=$(uname)
+# For Ubuntu
+if grep -q "Ubuntu" /etc/os-release; then
+    alias cat="bat"
+# For macOS
+elif [[ "$os_name" == "Darwin" ]]; then
+    alias cat="batcat"
+fi
+
 
 eval "$(starship init zsh)"

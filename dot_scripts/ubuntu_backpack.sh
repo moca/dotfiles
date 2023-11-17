@@ -4,7 +4,7 @@ sudo apt-get update
 
 # Install core tooling if not already installed
 if [ ! -x "$(command -v zsh)" ]; then    
-    sudo apt-get install -y zsh tree htop 
+    sudo apt install -y zsh tree htop bat
 fi
 
 # Install Oh My Zsh if not already installed
@@ -75,8 +75,8 @@ if [ ! -x "$(command -v chezmoi)" ]; then
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca
 fi
 
-echo "############################"
-echo "\n\nOMG! You're ready to go!"
+echo "\n\n############################"
+echo "nOMG! You're ready to go!"
 echo "Cloning time at https://github.com/moca/"
 
 
