@@ -102,8 +102,4 @@ source $ZSH/oh-my-zsh.sh
 alias cat="bat"
 alias cm="chezmoi"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export AWS_PROFILE="is-ai"
-fi
-
 eval "$(starship init zsh)"
