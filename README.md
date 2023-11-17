@@ -10,5 +10,5 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init  moca
 
 For fresh ec2 instances on **ubuntu**
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/moca/dotfiles/main/scripts/ubuntu_backpack.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/moca/dotfiles/main/dot_scripts/ubuntu_backpack.sh)"
 ```

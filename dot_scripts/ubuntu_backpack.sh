@@ -74,8 +74,7 @@ if [ ! -x "$(command -v chezmoi)" ]; then
 fi
 
 
-# Install AWS AIML repo in the home
-if [ ! -d "$HOME/aws_aiml_examples" ]; then
-    git clone https://github.com/moca/aws_aiml_examples ~/aws_aiml_examples
-fi
+echo "OMG! You're ready to go!"
+echo "Cloning time at https://github.com/moca/"
+
 
