@@ -24,7 +24,7 @@ if ! grep -Fxq "$EXEC_ZSH" ~/.bashrc; then
 fi
 
 
-# Install starship prompt if not already done
+# Install starship prompt engine
 if [ ! -x "$(command -v starship)" ]; then
     sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
     # Add the following line to your shell profile file (e.g., .bashrc, .zshrc)

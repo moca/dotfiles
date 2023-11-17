@@ -3,11 +3,12 @@ My dotfiles !
 
 ## TL;DR
 
+For **existing hosts**
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init  moca
 ```
 
-## For fresh AWS instances on Ubuntu 
+For fresh ec2 instances on **ubuntu**
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/moca/dotfiles/main/scripts/ubuntu_backpack.sh)"
 ```
