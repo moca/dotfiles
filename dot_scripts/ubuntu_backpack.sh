@@ -33,7 +33,9 @@ fi
 
 
 # Get virtualenv readiness
-python3 -m venv --version ||  sudo apt-get install -y python3-venv
+if [ ! -x "$(command -v virtualenv)" ]; then
+    sudo apt-get install -y python3-venv
+fi
 
 
 # Install AWS CLI V2
