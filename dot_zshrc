@@ -102,12 +102,11 @@ source $ZSH/oh-my-zsh.sh
 alias cm="chezmoi"
 
 os_name=$(uname)
-# For Ubuntu
-if grep -q "Ubuntu" /etc/os-release; then
-    alias cat="batcat"
-# For macOS
-elif [[ "$os_name" == "Darwin" ]]; then
+
+if [[ "$os_name" == "Darwin" ]]; then # For MacOS
     alias cat="bat"
+elif grep -q "Ubuntu" /etc/os-release; then # For Ubuntu
+    alias cat="batcat"
 fi
 
 
