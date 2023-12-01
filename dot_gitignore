@@ -230,3 +230,6 @@ terraform.rc
 
 # Remove neuron compilation
 log-neuron-cc.txt
+
+# Avoid folders with data
+data-no-git
