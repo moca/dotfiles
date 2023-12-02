@@ -70,10 +70,19 @@ else
     echo "Nvidia drivers not found. Skipping nvtop installation."
 fi
 
+
+# Install Dust for disk usage analysis
+if [ ! -x "$(command -v dust)" ]; then    
+    wget https://github.com/bootandy/dust/releases/download/v0.8.6/du-dust_0.8.6_amd64.deb
+    sudo dpkg -i du-dust_0.8.6_amd64.deb
+    rm du-dust_0.8.6_amd64.deb
+fi
+
 # Install Chezmoi
 if [ ! -x "$(command -v chezmoi)" ]; then
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca -b $HOME/.local/bin
 fi
+
 
 echo "\n\n ############################"
 echo "nOMG! You're ready to go!"
