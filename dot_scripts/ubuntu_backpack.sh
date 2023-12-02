@@ -44,6 +44,10 @@ if [ ! -d "/usr/local/aws-cli/v2/" ]; then
     unzip awscliv2.zip
     sudo ./aws/install
     rm -rf aws awscliv2.zip
+
+    # Make s3 commands blazing fast
+    # See more at https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/
+    aws configure set s3.preferred_transfer_client crt
 else 
     echo "AWS CLI already updated to V2"
 fi
