@@ -3,7 +3,7 @@
 sudo apt-get update
 
 # Install core tooling if not already installed
-if [ ! -x "$(command -v zsh)" ]; then    
+if [ ! -x "$(command -v zsh)" ]; then
     sudo apt install -y zsh tree htop bat
 fi
 
@@ -44,14 +44,14 @@ if [ ! -d "/usr/local/aws-cli/v2/" ]; then
     unzip awscliv2.zip
     sudo ./aws/install
     rm -rf aws awscliv2.zip
-else 
+else
     echo "AWS CLI already updated to V2"
 fi
 
 
 # Install neuron index for Inf/Trn instances
 # See more at https://awsdocs-neuron.readthedocs-hosted.com/en/latest/frameworks/torch/index.html
-if [ ! -x "$(command -v neuron-top)" ]; then    
+if [ ! -x "$(command -v neuron-top)" ]; then
     # This index will also work on virtual environments
     python -m pip config set global.extra-index-url https://pip.repos.neuron.amazonaws.com
 fi
@@ -63,10 +63,10 @@ if [ -x "$(command -v nvidia-smi)" ] && [ ! -x "$(command -v nvtop)" ] ; then
     sudo apt update
     sudo apt install -y nvtop
     # Prefer to use AMI with drivers installed
-    # sudo apt install -y ubuntu-drivers-common 
+    # sudo apt install -y ubuntu-drivers-common
     # sudo ubuntu-drivers install --gpgpu # OR sudo ubuntu-drivers autoinstall
     # sudo apt install -y nvidia-driver-535-server
-else 
+else
     echo "Nvidia drivers not found. Skipping nvtop installation."
 fi
 
@@ -74,6 +74,9 @@ fi
 if [ ! -x "$(command -v chezmoi)" ]; then
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca -b $HOME/.local/bin
 fi
+
+# Config GIT
+git config --global core.excludesfile ~/.gitignore
 
 echo "\n\n ############################"
 echo "nOMG! You're ready to go!"
