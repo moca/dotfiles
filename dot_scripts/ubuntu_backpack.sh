@@ -82,9 +82,10 @@ if [ ! -x "$(command -v dust)" ]; then
     rm du-dust_0.8.6_amd64.deb
 fi
 
-# Install Chezmoi
+# Install Chezmoi -- the quick and dirty way
 if [ ! -x "$(command -v chezmoi)" ]; then
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca -b $HOME/.local/bin
+    sudo sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin
+    chezmoi init https://github.com/moca/dotfiles.git
 fi
 
 echo "\n\n ############################"
