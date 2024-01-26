@@ -44,15 +44,11 @@ if [ ! -d "/usr/local/aws-cli/v2/" ]; then
     unzip awscliv2.zip
     sudo ./aws/install
     rm -rf aws awscliv2.zip
-<<<<<<< HEAD
-else
-=======
 
     # Make s3 commands blazing fast
     # See more at https://aws.amazon.com/blogs/storage/improving-amazon-s3-throughput-for-the-aws-cli-and-boto3-with-the-aws-common-runtime/
     aws configure set s3.preferred_transfer_client crt
 else 
->>>>>>> db8ae9ea1d79a11d6a8e830b11cee3dca3279bd3
     echo "AWS CLI already updated to V2"
 fi
 
@@ -91,11 +87,8 @@ if [ ! -x "$(command -v chezmoi)" ]; then
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca -b $HOME/.local/bin
 fi
 
-<<<<<<< HEAD
 # Config GIT
 git config --global core.excludesfile ~/.gitignore
-=======
->>>>>>> db8ae9ea1d79a11d6a8e830b11cee3dca3279bd3
 
 echo "\n\n ############################"
 echo "nOMG! You're ready to go!"
