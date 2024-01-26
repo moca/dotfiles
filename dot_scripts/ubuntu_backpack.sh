@@ -87,9 +87,6 @@ if [ ! -x "$(command -v chezmoi)" ]; then
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply moca -b $HOME/.local/bin
 fi
 
-# Config GIT
-git config --global core.excludesfile ~/.gitignore
-
 echo "\n\n ############################"
 echo "nOMG! You're ready to go!"
 echo "Cloning time at https://github.com/moca/"

@@ -1,5 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-name = Moca Guero
-email = 411543+moca@users.noreply.github.com
+    name = Moca Guero
+    email = 411543+moca@users.noreply.github.com
+[pull]
+    ff = only
+[core]
+    excludesFile = ~/.gitignore
